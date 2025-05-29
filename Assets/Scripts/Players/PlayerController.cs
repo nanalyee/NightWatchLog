@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
             SetState(new DeadState());
             Debug.Log("플레이어가 사망했습니다.");
             GameManager.Instance.OnPlayerDied();
+            DayManager.Instance?.EndDay(false);
         }
     }
     public void SetState(IPlayerState newState)
