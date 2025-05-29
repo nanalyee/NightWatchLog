@@ -1,0 +1,20 @@
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+Assets/AssetStoreTools*
+Assets/Sprites/
+Assets/Tiles/
+Assets/TextMesh PRo/
+
+# Visual Studio cache
+.vscode/
+*.csproj
+*.sln
+*.user
+*.suo
+
+# OS나 기타 툴에서 생기는 파일
+.DS_Store
+Thumbs.db

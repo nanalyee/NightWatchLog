@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca87acc7287c0ef41be0250f53c07fbd, type: 3}
+  m_Name: Rule01
+  m_EditorClassIdentifier: 
+  ruleID: Rule01
+  ruleName: "\uD544\uC2181\uBC88\uADDC\uCE59"
+  description: "\uADF8\uB9BC\uC790\uB97C \uD53C\uD574\uB77C"
+  ruleType: 0
+  triggerTag: Trigger_HallwayStart
+  triggerConditionNote: "\uBCF5\uB3C4 \uC9C4\uC785"
+  solveConditionNote: "\uAD50\uC2E4\uB85C \uB4E4\uC5B4\uAC00 \uBD88\uC744 \uCF20\uB2E4."
+  isUnlocked: 0
+  isRepeatable: 0
+  requiredItem: {fileID: 0}
+  unlockHintText: 
+  successDescription: "\uB098\uB294 \uADF8\uB9BC\uC790\uC5D0 \uCAD3\uACA8 \uB4E4\uC5B4\uAC04
+    \uAD50\uC2E4\uC758 \uBD88\uC744 \uCF30\uB2E4. \uC0AC\uB77C\uC84C\uB2E4. \uC798
+    \uBABB \uBCF8\uAC78\uAE4C."
+  failDescription: "\uBCF5\uB3C4\uC5D0\uC11C \uB098\uB97C \uB530\uB77C\uC624\uB294
+    \uADF8\uB9BC\uC790\uAC00 \uB098\uB97C \uB365\uCE58\uB294 \uAFC8\uC744 \uAFE8\uB2E4."

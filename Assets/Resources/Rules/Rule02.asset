@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca87acc7287c0ef41be0250f53c07fbd, type: 3}
+  m_Name: Rule02
+  m_EditorClassIdentifier: 
+  ruleID: Rule02
+  ruleName: "\uD544\uC2182\uBC88\uADDC\uCE59"
+  description: "\uAE68\uC9C4 \uAC70\uC6B8 \uC55E\uC5D0 \uC624\uB798 \uBA38\uBB34\uB974\uC9C0
+    \uB9C8\uB77C"
+  ruleType: 0
+  triggerTag: Trigger_MirrorZone
+  triggerConditionNote: "\uAE68\uC9C4 \uAC70\uC6B8 \uC55E\uC5D0 5\uCD08\uB3D9\uC548
+    \uBA38\uBB34\uB974\uAE30"
+  solveConditionNote: "5\uCD08 \uC548\uC5D0 \uBC97\uC5B4\uB098\uAE30"
+  isUnlocked: 0
+  isRepeatable: 1
+  requiredItem: {fileID: 0}
+  unlockHintText: 
+  successDescription: "\uAE68\uC9C4 \uAC70\uC6B8\uC740 \uD568\uBD80\uB85C \uB4E4\uC5EC\uB2E4\uBD10\uC11C\uB294
+    \uC548\uB41C\uB2E4."
+  failDescription: "\uAFC8\uC5D0\uC11C \uBB18\uD55C \uAC70\uC6B8\uC744 \uBC1C\uACAC\uD588\uB2E4.
+    \uB098\uB3C4 \uBAA8\uB974\uAC8C \uBE60\uC838\uB4E4\uC5C8\uB2E4. \uAC70\uC6B8\uC5D0
+    \uC7A1\uC544\uBA39\uD600\uC11C\uC57C \uAFC8\uC5D0\uC11C \uAE7C\uB2E4."
