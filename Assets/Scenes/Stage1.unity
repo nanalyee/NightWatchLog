@@ -472,7 +472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 79539653}
-  gameOverText: {fileID: 0}
+  gameOverText: {fileID: 652887656}
 --- !u!4 &460836314
 Transform:
   m_ObjectHideFlags: 0
@@ -1542,7 +1542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d84e372475341d4388dedae827a3f89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ruleID: Test_Interaction
+  ruleID: Hidden01
 --- !u!4 &1052819590
 Transform:
   m_ObjectHideFlags: 0
@@ -1839,7 +1839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c84445943f54bb48be4515ce7b7d803, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ruleID: Time01
+  ruleID: Rule02
   delay: 5
 --- !u!4 &1615650615
 Transform:
@@ -1988,7 +1988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de922d6d16b1ca14580303e0bede7b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ruleID: Hidden01
+  ruleID: Rule01
 --- !u!4 &1622800412
 Transform:
   m_ObjectHideFlags: 0

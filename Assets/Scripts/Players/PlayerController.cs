@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleRuleTriggered(string ruleID)
     {
-        if (ruleID == "Time01" && !(currentState is DeadState))
+        if (ruleID == "Hidden01" && !(currentState is DeadState))
         {
             SetState(new DeadState());
             Debug.Log("플레이어가 사망했습니다.");
@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour
                 break;
             case "DeadState":
                 stateID = 2;
+                Debug.Log($"Player State changed to: {newState.GetType().Name}");
                 break;
             default:
                 stateID = 0;
@@ -74,6 +75,6 @@ public class PlayerController : MonoBehaviour
         }
 
         animator.SetInteger(StateID, stateID);
-        Debug.Log($"Player State changed to: {newState.GetType().Name}");
+        
     }
 }
