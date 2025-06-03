@@ -1,4 +1,5 @@
 using System;
+using Unity.Mathematics;
 using UnityEngine;
 
 /// <summary>
@@ -8,13 +9,14 @@ using UnityEngine;
 public class EventPublisher : MonoBehaviour
 {
     // 이벤트 선언
-    public static event Action<string> OnRuleTriggered;
+    public static event Action<string, bool> OnRuleTriggered;
 
     // 이벤트 발송
-    public static void TriggerRule(string ruleID)
+    public static void TriggerRule(string ruleID, bool status)
     {
         // 이벤트 구독 중일 때 호출
-        OnRuleTriggered?.Invoke(ruleID);
+        OnRuleTriggered?.Invoke(ruleID, status);
         Debug.Log($"Rule Triggered: {ruleID}");
+        Debug.Log($"Player Status: {status}");
     }
 }

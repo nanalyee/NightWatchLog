@@ -40,16 +40,32 @@ public class PlayerController : MonoBehaviour
         currentState?.Update(this);
     }
 
-    private void HandleRuleTriggered(string ruleID)
+    private void HandleRuleTriggered(string ruleID, bool isSolved)
     {
-        if (ruleID == "Hidden01" && !(currentState is DeadState))
+        if (isSolved)
         {
-            SetState(new DeadState());
-            Debug.Log("플레이어가 사망했습니다.");
-            GameManager.Instance.OnPlayerDied();
-            DayManager.Instance?.EndDay(false);
+            Debug.Log($"Rule {ruleID} 파훼 성공!");
+
+            // 파훼 성공 → RuleManager에 규칙 해금 요청
+            RuleManager.Instance?.UnlockRule(ruleID);
+            // 이후에 DayManager에서 규칙 해금 상태/파훼 여부 등을 UI 업데이트 등에 활용 가능
+        }
+        else
+        {
+            Debug.Log($"Rule {ruleID} 파훼 실패. 사망 처리!");
+
+            if (!(currentState is DeadState))
+            {
+                SetState(new DeadState());
+                Debug.Log("플레이어가 사망했습니다.");
+                GameManager.Instance.OnPlayerDied();
+                DayManager.Instance?.EndDay(false);
+            }
         }
     }
+
+
+    
     public void SetState(IPlayerState newState)
     {
         currentState?.Exit(this);
@@ -76,6 +92,6 @@ public class PlayerController : MonoBehaviour
         }
 
         animator.SetInteger(StateID, stateID);
-        
+
     }
 }

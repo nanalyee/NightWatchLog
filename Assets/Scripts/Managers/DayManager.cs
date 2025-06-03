@@ -36,7 +36,7 @@ public class DayManager : MonoBehaviour
         Debug.Log($"[DayManager] Day {currentDay} 시작. 규칙 개수: {currentDayData.essentialRules.Count}");
 
         // 여기서 RuleManager 등에 규칙 전달하는 로직 포함 가능
-        //RuleManager.Instance?.InitializeRules(currentDayData);
+        RuleManager.Instance?.InitializeRules(currentDayData);
 
         // 추가: 연출, UI 초기화 등
     }

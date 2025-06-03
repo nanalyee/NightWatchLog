@@ -9,7 +9,7 @@ public class PositionTrigger : RuleTrigger
     {
         if (collision.CompareTag("Player"))
         {
-            Trigger();
+            Trigger(true);
         }
     }
 }

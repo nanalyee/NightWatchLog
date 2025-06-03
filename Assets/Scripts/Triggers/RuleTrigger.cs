@@ -7,9 +7,11 @@ public class RuleTrigger : MonoBehaviour
 {
     [SerializeField] protected string ruleID;
 
-    protected virtual void Trigger()
+    protected virtual void Trigger(bool status)
     {
-        EventPublisher.TriggerRule(ruleID);
+        EventPublisher.TriggerRule(ruleID, status);
+        Debug.Log($"[RuleTrigger] Trigger() 호출됨! ruleID: {ruleID}, status: {status}");
+
     }
 
     protected virtual void Awake()

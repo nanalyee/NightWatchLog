@@ -23,7 +23,7 @@ public class TimeTrigger : RuleTrigger
     {
         Debug.Log($"Time Trigger will activate in {delay} seconds: {ruleID}");
         yield return new WaitForSeconds(delay);
-        Trigger();
+        Trigger(false);
         isTriggered = false;
         deathCoroutine = null;
         Debug.Log($"Time Trigger activated: {ruleID}");
@@ -38,6 +38,7 @@ public class TimeTrigger : RuleTrigger
             StopCoroutine(deathCoroutine);
             deathCoroutine = null;
             Debug.Log($"Time Trigger reset: {ruleID}");
+            Trigger(true);
         }
     }
 }

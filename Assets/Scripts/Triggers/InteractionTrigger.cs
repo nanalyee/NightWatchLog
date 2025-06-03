@@ -30,7 +30,7 @@ public class InteractionTrigger : RuleTrigger
     {
         if (isPlayerInRange && Keyboard.current.eKey.wasPressedThisFrame)
         {
-            Trigger();
+            Trigger(true);
             Debug.Log($"Interaction Trigger activated: {ruleID}");
         }
     }
