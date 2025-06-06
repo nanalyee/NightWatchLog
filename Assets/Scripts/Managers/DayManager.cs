@@ -14,7 +14,7 @@ public class DayManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject); // 필요하다면
+        //DontDestroyOnLoad(gameObject); // 필요하다면
     }
 
     [SerializeField] private List<DayData> allDays; // Resources에서 로드하거나 인스펙터에서 할당
@@ -47,6 +47,7 @@ public class DayManager : MonoBehaviour
         {
             Debug.Log($"[DayManager] Day {currentDay} 클리어 성공! 일지 출력 준비");
             // 일지 출력 → CalendarScene 이동 등
+            GameManager.Instance.OnStageClear();
         }
         else
         {

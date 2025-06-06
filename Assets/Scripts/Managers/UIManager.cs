@@ -7,8 +7,8 @@ public class UIManager : MonoBehaviour
     private static UIManager instance;
     public static UIManager Instance => instance;
 
-    [SerializeField] private GameObject gameOverPanel;
-    [SerializeField] private TMP_Text gameOverText;
+    [SerializeField] private GameObject gamePanel;
+    [SerializeField] private TMP_Text gameText;
 
     private void Awake()
     {
@@ -19,20 +19,34 @@ public class UIManager : MonoBehaviour
         }
 
         instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
-    public void ShowGameOverPanel()
+    public void ShowPanel(bool isClear)
     {
-        if (gameOverPanel != null)
+        if (gamePanel != null)
         {
-            gameOverPanel.SetActive(true);
-            gameOverText.text = "Game Over";
-            Debug.Log("게임 오버 패널 표시");
+            gamePanel.SetActive(true);
+            Debug.Log("게임 패널 표시");
+            ShowStatus(isClear);
         }
         else
         {
-            Debug.LogWarning("게임 오버 패널이 연결되지 않았습니다.");
+            Debug.LogWarning("게임 패널이 연결되지 않았습니다.");
+        }
+    }
+
+    private void ShowStatus(bool isClear)
+    {
+        if (isClear)
+        {
+            gameText.text = "Game Clear";
+            Debug.Log("게임 클리어 패널 표시");
+        }
+        else
+        {
+            gameText.text = "Game Over";
+            Debug.Log("게임 오버 패널 표시");
         }
     }
 }

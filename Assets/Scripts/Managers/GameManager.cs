@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
         }
 
         instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
@@ -27,8 +27,14 @@ public class GameManager : MonoBehaviour
         Debug.Log("게임 오버 처리 시작");
 
         // 게임 오버 패널 표시 (UI 매니저와 연동 가능)
-        UIManager.Instance.ShowGameOverPanel();
+        UIManager.Instance.ShowPanel(false);
 
         // 점수 계산, 랭킹 처리, 광고 호출 등 추가 가능
+    }
+
+    public void OnStageClear()
+    {
+        Debug.Log("스테이지 클리어");
+        UIManager.Instance.ShowPanel(true);
     }
 }

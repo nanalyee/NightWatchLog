@@ -6,6 +6,12 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class InteractionTrigger : RuleTrigger
 {
+    [Header("Trigger Mode")]
+    [SerializeField] private bool isChaseMode; // 적이 쫓아오는 모드
+
+    [Header("Externer Object")]
+    [SerializeField] private GameObject enemy; // 적
+
     private bool isPlayerInRange = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -14,6 +20,7 @@ public class InteractionTrigger : RuleTrigger
         {
             isPlayerInRange = true;
             Debug.Log($"Player entered interaction zone: {ruleID}");
+            // 이펙트 켜기
         }
     }
 
@@ -23,6 +30,7 @@ public class InteractionTrigger : RuleTrigger
         {
             isPlayerInRange = false;
             Debug.Log($"Player exited interaction zone: {ruleID}");
+            // 이펙트 끄기
         }
     }
 
@@ -32,6 +40,7 @@ public class InteractionTrigger : RuleTrigger
         {
             Trigger(true);
             Debug.Log($"Interaction Trigger activated: {ruleID}");
+            enemy.SetActive(false);
         }
     }
 }
