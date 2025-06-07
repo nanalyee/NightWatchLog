@@ -4,21 +4,20 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    private static UIManager instance;
-    public static UIManager Instance => instance;
+    public static UIManager Instance { get; private set; }
 
     [SerializeField] private GameObject gamePanel;
     [SerializeField] private TMP_Text gameText;
 
     private void Awake()
     {
-        if (instance != null && instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
 
-        instance = this;
+        Instance = this;
         //DontDestroyOnLoad(gameObject);
     }
 

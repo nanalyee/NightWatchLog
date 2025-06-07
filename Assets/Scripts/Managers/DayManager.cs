@@ -4,7 +4,7 @@ using UnityEngine;
 public class DayManager : MonoBehaviour
 {
     public static DayManager Instance { get; private set; }
-
+    public List<RuleData> currentStageRules = new();
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -59,5 +59,10 @@ public class DayManager : MonoBehaviour
     public DayData GetCurrentDayData()
     {
         return currentDayData;
+    }
+    
+    public RuleData GetRuleDataByID(string ruleID)
+    {
+        return currentStageRules.Find(r => r.ruleID == ruleID);
     }
 }
