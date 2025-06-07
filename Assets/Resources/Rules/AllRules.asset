@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: AllRules
   m_EditorClassIdentifier: 
   rules:
-  - {fileID: 11400000, guid: e8f192050b3542b45b5bc67d399aa3aa, type: 2}
-  - {fileID: 11400000, guid: f88832b8c140a214ca701ab1d9bb4d45, type: 2}
+  - {fileID: 11400000, guid: 44e50e6c7db3dde4ebd413a5358520fd, type: 2}
+  - {fileID: 11400000, guid: 0bf9404fa3c3ff74bbe1136e957d5741, type: 2}
   - {fileID: 11400000, guid: 6ce0f2dd7f95e1b40935da3a87c0e3bf, type: 2}

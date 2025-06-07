@@ -21,7 +21,7 @@ MonoBehaviour:
   solveConditionNote: "\uAD50\uC2E4\uB85C \uB4E4\uC5B4\uAC00 \uBD88\uC744 \uCF20\uB2E4."
   isUnlocked: 0
   isRepeatable: 0
-  requiredItem: {fileID: 0}
+  requiredItem: []
   unlockHintText: 
   successDescription: "\uB098\uB294 \uADF8\uB9BC\uC790\uC5D0 \uCAD3\uACA8 \uB4E4\uC5B4\uAC04
     \uAD50\uC2E4\uC758 \uBD88\uC744 \uCF30\uB2E4. \uC0AC\uB77C\uC84C\uB2E4. \uC798

@@ -23,7 +23,7 @@ public class RuleData : ScriptableObject
     public bool isRepeatable = false;   // 반복 해금 여부
 
     [Header("히든 규칙 보상 조건")]
-    public List<GameObject> requiredItem;     // 특정 아이템 퍼즐에 필요한 경우
+    public List<string> requiredItemIDs;     // 특정 아이템 퍼즐에 필요한 경우
     public string unlockHintText;       // ex) "거울 조각을 모두 모아 전신거울을 보면…"
 
     [Header("일지 내용")]

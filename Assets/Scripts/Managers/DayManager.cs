@@ -4,7 +4,7 @@ using UnityEngine;
 public class DayManager : MonoBehaviour
 {
     public static DayManager Instance { get; private set; }
-    public List<RuleData> currentStageRules = new();
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -60,9 +60,25 @@ public class DayManager : MonoBehaviour
     {
         return currentDayData;
     }
-    
+
     public RuleData GetRuleDataByID(string ruleID)
     {
-        return currentStageRules.Find(r => r.ruleID == ruleID);
+        if (currentDayData == null)
+        {
+            Debug.LogWarning("[DayManager] 현재 DayData가 없습니다.");
+            return null;
+        }
+
+        // 필수 규칙에서 찾기
+        RuleData rule = currentDayData.essentialRules.Find(r => r.ruleID == ruleID);
+
+        // 없으면 히든 규칙에서 찾기
+        if (rule == null)
+        {
+            rule = currentDayData.hiddenRules.Find(r => r.ruleID == ruleID);
+        }
+
+        return rule;
     }
+
 }

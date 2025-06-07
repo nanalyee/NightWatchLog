@@ -23,7 +23,7 @@ MonoBehaviour:
   solveConditionNote: "5\uCD08 \uC548\uC5D0 \uBC97\uC5B4\uB098\uAE30"
   isUnlocked: 0
   isRepeatable: 1
-  requiredItem: {fileID: 0}
+  requiredItem: []
   unlockHintText: 
   successDescription: "\uAE68\uC9C4 \uAC70\uC6B8\uC740 \uD568\uBD80\uB85C \uB4E4\uC5EC\uB2E4\uBD10\uC11C\uB294
     \uC548\uB41C\uB2E4."

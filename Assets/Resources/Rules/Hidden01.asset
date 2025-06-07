@@ -22,11 +22,11 @@ MonoBehaviour:
   solveConditionNote: "\uAC70\uC6B8 \uC870\uAC01 3\uAC1C \uC218\uC9D1\uD574 \uC804\uC2E0\uAC70\uC6B8\uC5D0
     \uC870\uB9BD \uD6C4 \uC0C1\uD638\uC791\uC6A9"
   isUnlocked: 0
-  isRepeatable: 1
-  requiredItem:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  isRepeatable: 0
+  requiredItemIDs:
+  - e_MirroShard_A
+  - e_MirroShard_B
+  - e_MirroShard_C
   unlockHintText: "\uBC18\uC9DD\uAC70\uB9AC\uB294 \uAC83\uC744 \uCC3E\uC544\uBCF4\uC790."
   successDescription: "\uC870\uAC01\uC744 \uCC3E\uC544 \uADF8 \uAC70\uC6B8\uC5D0
     \uB9DE\uCDC4\uB2E4. \uC6B8\uACE0 \uC788\uB294 \uC18C\uB140\uAC00 \uB0B4\uAC8C

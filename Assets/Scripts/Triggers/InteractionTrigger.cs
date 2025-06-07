@@ -17,8 +17,23 @@ public class InteractionTrigger : RuleTrigger
 
     [Header("Externer Object")]
     [SerializeField] private GameObject enemy; // 적
+    [SerializeField] private TimeTrigger timeTrigger;
 
     private bool isPlayerInRange = false;
+
+    private void Start()
+    {
+        timeTrigger = GetComponent<TimeTrigger>();
+
+        if (timeTrigger != null)
+        {
+            Debug.Log("TimeTrigger를 성공적으로 찾았습니다!");
+        }
+        else
+        {
+            Debug.LogWarning("TimeTrigger가 이 오브젝트에 없습니다.");
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -82,20 +97,41 @@ public class InteractionTrigger : RuleTrigger
 
     private void PerformSolveMode()
     {
-        if (InventoryManager.Instance.HasItem("e_MirroShard_A")
-        && InventoryManager.Instance.HasItem("e_MirroShard_B")
-        && InventoryManager.Instance.HasItem("e_MirroShard_C"))
+        // 🔥 DayManager에서 이번 Day의 규칙 데이터를 가져옴
+        RuleData ruleData = DayManager.Instance.GetRuleDataByID(ruleID);
+        if (ruleData == null || ruleData.requiredItemIDs == null || ruleData.requiredItemIDs.Count == 0)
         {
-            InventoryManager.Instance.UseItem("e_MirroShard_A");
-            InventoryManager.Instance.UseItem("e_MirroShard_B");
-            InventoryManager.Instance.UseItem("e_MirroShard_C");
+            Debug.Log(ruleID +" 규칙은 필요한 아이템이 없습니다.");
+            return;
+        }
 
-            Trigger(true);
-
-            foreach (var script in GetComponents<RuleTrigger>())
+        // 1️⃣ 필요한 아이템이 모두 있는지 확인
+        foreach (string itemID in ruleData.requiredItemIDs)
+        {
+            if (!InventoryManager.Instance.HasItem(itemID))
             {
-                script.enabled = false;
+                Debug.Log($"아이템이 부족합니다: {itemID}");
+                return;
             }
         }
+
+        // 2️⃣ 필요한 아이템을 모두 소모
+        foreach (string itemID in ruleData.requiredItemIDs)
+        {
+            InventoryManager.Instance.UseItem(itemID);
+            Debug.Log($"아이템 사용됨: {itemID}");
+        }
+
+        // 3️⃣ 규칙 트리거 해금 처리
+        Trigger(true);
+
+        // 4️⃣ 이 InteractionTrigger가 가진 모든 RuleTrigger 비활성화
+        foreach (var script in GetComponents<RuleTrigger>())
+        {
+            script.enabled = false;
+        }
+
+        Debug.Log($"[InteractionTrigger] {ruleID} 퍼즐 해금 완료!");
+        if (timeTrigger) timeTrigger.isVisited = true;
     }
 }

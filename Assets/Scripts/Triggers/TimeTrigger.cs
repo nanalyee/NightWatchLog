@@ -10,8 +10,12 @@ public class TimeTrigger : RuleTrigger
     private bool isTriggered = false;
     private Coroutine deathCoroutine;
 
+    [Header("Trigger Status")]
+    [SerializeField] public bool isVisited = false; // 방문 여부
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (isVisited) return;
         if (!isTriggered && collision.CompareTag("Player"))
         {
             isTriggered = true;
@@ -31,6 +35,7 @@ public class TimeTrigger : RuleTrigger
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        //if (isVisited) return;
         // 플레이어가 영역을 벗어나면 타이머 초기화
         if (collision.CompareTag("Player") && deathCoroutine != null)
         {
@@ -40,5 +45,12 @@ public class TimeTrigger : RuleTrigger
             Debug.Log($"Time Trigger reset: {ruleID}");
             Trigger(true);
         }
+    }
+
+    private void OnDisable()
+    {
+        Debug.Log("규칙이 파훼되어 타이머가 중단됩니다다");
+        Debug.Log($"Time Trigger Stopped: {ruleID}");
+        StopCoroutine(deathCoroutine);
     }
 }
