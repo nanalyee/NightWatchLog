@@ -31,7 +31,7 @@ public class InteractionTrigger : RuleTrigger
         }
         else
         {
-            Debug.LogWarning("TimeTrigger가 이 오브젝트에 없습니다.");
+            Debug.Log("TimeTrigger가 "+gameObject.name+" 오브젝트에 없습니다.");
         }
     }
 
