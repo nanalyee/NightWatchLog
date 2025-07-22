@@ -49,6 +49,7 @@ public class TimeTrigger : RuleTrigger
 
     private void OnDisable()
     {
+        if (deathCoroutine == null) return;
         Debug.Log("규칙이 파훼되어 타이머가 중단됩니다다");
         Debug.Log($"Time Trigger Stopped: {ruleID}");
         StopCoroutine(deathCoroutine);

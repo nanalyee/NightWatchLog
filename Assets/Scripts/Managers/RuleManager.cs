@@ -245,7 +245,7 @@ public class RuleManager : MonoBehaviour
             }
         }
     }
-    
+
     private void DebugAllRuleStatus()
     {
         Debug.Log("=== [RuleManager Debug] 현재 모든 규칙 상태 ===");
@@ -256,5 +256,55 @@ public class RuleManager : MonoBehaviour
             Debug.Log($"RuleID: {ruleID} | isUnlocked: {status.isUnlocked}, isSolved: {status.isSolved}");
         }
         Debug.Log("=============================================");
+    }
+
+    public List<RuleData> GetUnlockedRuleDataList()
+    {
+        var unlockedRules = new List<RuleData>();
+
+        // 현재 상태 맵(ruleStatusMap)에 있는 모든 규칙을 확인합니다.
+        foreach (var kvp in ruleStatusMap)
+        {
+            string ruleID = kvp.Key;
+            RuleStatus status = kvp.Value;
+
+            // 만약 규칙이 해금(isUnlocked) 상태라면,
+            if (status.isUnlocked)
+            {
+                // ruleID를 이용해 ruleDatabase에서 원본 RuleData를 찾습니다.
+                RuleData ruleData = GetRuleByID(ruleID);
+                if (ruleData != null)
+                {
+                    // 찾은 RuleData를 리스트에 추가합니다.
+                    unlockedRules.Add(ruleData);
+                }
+            }
+        }
+
+        return unlockedRules; // 해금된 규칙 데이터 목록을 반환합니다.
+    }
+    
+    // 특정 규칙의 성공(solved) 여부를 반환
+    public bool WasRuleSolved(string ruleID)
+    {
+        if (ruleStatusMap.TryGetValue(ruleID, out RuleStatus status))
+        {
+            return status.isSolved;
+        }
+        return false;
+    }
+
+    // 현재 해금된 모든 규칙의 ID 리스트를 반환
+    public List<string> GetUnlockedRuleIDs()
+    {
+        var unlockedIDs = new List<string>();
+        foreach (var kvp in ruleStatusMap)
+        {
+            if (kvp.Value.isUnlocked)
+            {
+                unlockedIDs.Add(kvp.Key);
+            }
+        }
+        return unlockedIDs;
     }
 }
