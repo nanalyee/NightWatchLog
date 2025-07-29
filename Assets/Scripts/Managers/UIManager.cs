@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private GameObject gamePanel;
     [SerializeField] private TMP_Text gameText;
+    [SerializeField] private TMP_Text dayText;
 
     private void Awake()
     {
@@ -19,6 +20,11 @@ public class UIManager : MonoBehaviour
 
         Instance = this;
         //DontDestroyOnLoad(gameObject);
+    }
+
+    void Start()
+    {
+        ShowDay();
     }
 
     public void ShowPanel(bool isClear)
@@ -47,5 +53,11 @@ public class UIManager : MonoBehaviour
             gameText.text = "Game Over";
             Debug.Log("게임 오버 패널 표시");
         }
+    }
+
+    private void ShowDay()
+    {
+        Debug.Log(DayManager.Instance.currentDay + "일차를 시작합니다.");
+        dayText.text = "Day " + DayManager.Instance.currentDay; 
     }
 }
